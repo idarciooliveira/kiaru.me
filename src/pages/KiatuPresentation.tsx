@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Monitor, Palette, User, Settings, LogOut, Chrome, QRCode, BarChart3, FileDown, Play, ArrowRight, Check } from 'lucide-react';
+import { Monitor, Palette, User, Settings, LogOut, Chrome, Code as QRCode, BarChart3, FileDown, Play, ArrowRight, Check } from 'lucide-react';
 
 const KiatuPresentation = () => {
   const [selectedTheme, setSelectedTheme] = useState(0);
