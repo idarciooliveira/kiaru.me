@@ -310,11 +310,11 @@ function Portfolio() {
 
   return (
     <div className={`min-h-screen bg-gradient-to-br ${themes[selectedTheme].class} p-4 transition-all duration-700`}>
-      <div className="max-w-md rounded-2xl p-4 mx-auto bg-gradient-to-br from-gray-900 via-blue-900 to-slate-800 text-white">
+      <div className={`max-w-md rounded-2xl p-4 mx-auto bg-gradient-to-br ${themes[selectedTheme].class} text-white transition-all duration-700`}>
         {/* Color Picker - Only show when not in edit mode */}
         {!isEditMode && (
           <div className="absolute top-4 left-4 z-10">
-            <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-3 shadow-2xl">
+            <div className="bg-black/20 backdrop-blur-xl border border-white/20 rounded-2xl p-3 shadow-2xl">
               <div className="grid grid-cols-2 gap-2">
                 {themes.map((theme, index) => (
                   <button
