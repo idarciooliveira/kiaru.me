@@ -36,44 +36,44 @@ const KiatuPresentation = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-slate-900">
       <div className="max-w-[1600px] mx-auto p-8">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-gray-900 mb-4 tracking-tight">Kiatu</h1>
-          <p className="text-xl text-gray-600 font-medium">Product Design Presentation</p>
+          <h1 className="text-5xl font-bold text-white mb-4 tracking-tight">Kiatu</h1>
+          <p className="text-xl text-slate-400 font-medium">Product Design Presentation</p>
         </div>
 
         {/* Main Presentation Container */}
-        <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100">
+        <div className="bg-slate-800 rounded-3xl shadow-2xl overflow-hidden border border-slate-700">
           <div className="grid grid-cols-1 xl:grid-cols-2 min-h-[800px]">
             
             {/* Panel 1: Full Landing Page */}
-            <div className="bg-white overflow-y-auto max-h-[800px]">
+            <div className="bg-slate-800 overflow-y-auto max-h-[800px]">
               <div className="space-y-0">
                 
                 {/* Header */}
-                <div className="bg-white px-8 py-6 border-b border-gray-100 sticky top-0 z-10">
+                <div className="bg-slate-800 px-8 py-6 border-b border-slate-700 sticky top-0 z-10">
                   <div className="flex items-center justify-between max-w-6xl mx-auto">
                     <div className="text-3xl font-bold bg-gradient-to-r from-emerald-500 to-blue-600 bg-clip-text text-transparent">
                       Kiatu
                     </div>
-                    <button className="px-6 py-2 text-gray-700 hover:text-gray-900 font-medium rounded-lg hover:bg-gray-50 transition-colors">
+                    <button className="px-6 py-2 text-slate-300 hover:text-white font-medium rounded-lg hover:bg-slate-700 transition-colors">
                       Login
                     </button>
                   </div>
                 </div>
 
                 {/* Hero Section */}
-                <div className="px-8 py-16 bg-gradient-to-br from-gray-50 to-white">
+                <div className="px-8 py-16 bg-gradient-to-br from-slate-800 to-slate-900">
                   <div className="max-w-6xl mx-auto text-center">
-                    <h1 className="text-5xl font-bold text-gray-900 mb-6 leading-tight tracking-tight">
+                    <h1 className="text-5xl font-bold text-white mb-6 leading-tight tracking-tight">
                       O Seu Perfil Profissional,<br />
                       <span className="bg-gradient-to-r from-emerald-500 to-blue-600 bg-clip-text text-transparent">
                         Reinventado
                       </span>
                     </h1>
-                    <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed">
+                    <p className="text-xl text-slate-300 mb-12 max-w-3xl mx-auto leading-relaxed">
                       Crie, personalize e partilhe uma página impressionante que une o seu CV, portfólio e contactos. Sem precisar de código.
                     </p>
 
@@ -81,7 +81,7 @@ const KiatuPresentation = () => {
                     <div className="mb-12 flex justify-center items-end space-x-8">
                       {/* Phone Mockup */}
                       <div className="relative">
-                        <div className="w-56 h-[480px] bg-black rounded-[3rem] p-3 shadow-2xl transform rotate-3">
+                        <div className="w-56 h-[480px] bg-slate-900 rounded-[3rem] p-3 shadow-2xl transform rotate-3">
                           <div 
                             className="w-full h-full rounded-[2.5rem] overflow-hidden relative"
                             style={{ background: themes[selectedTheme].preview }}
@@ -109,7 +109,7 @@ const KiatuPresentation = () => {
 
                       {/* Laptop Mockup */}
                       <div className="relative">
-                        <div className="w-80 h-52 bg-gray-800 rounded-t-2xl p-2 shadow-2xl transform -rotate-2">
+                        <div className="w-80 h-52 bg-slate-900 rounded-t-2xl p-2 shadow-2xl transform -rotate-2">
                           <div 
                             className="w-full h-full rounded-xl overflow-hidden"
                             style={{ background: themes[selectedTheme].preview }}
@@ -132,7 +132,7 @@ const KiatuPresentation = () => {
                             </div>
                           </div>
                         </div>
-                        <div className="w-80 h-4 bg-gray-700 rounded-b-2xl shadow-lg"></div>
+                        <div className="w-80 h-4 bg-slate-800 rounded-b-2xl shadow-lg"></div>
                       </div>
                     </div>
 
@@ -142,7 +142,7 @@ const KiatuPresentation = () => {
                         Comece Grátis
                       </button>
                       <div>
-                        <button className="bg-white hover:bg-gray-50 text-gray-700 font-medium py-3 px-8 rounded-xl border border-gray-300 transition-colors flex items-center justify-center gap-3 mx-auto">
+                        <button className="bg-slate-700 hover:bg-slate-600 text-slate-200 font-medium py-3 px-8 rounded-xl border border-slate-600 transition-colors flex items-center justify-center gap-3 mx-auto">
                           <Chrome className="w-5 h-5" />
                           Inscreva-se com Google
                         </button>
@@ -152,15 +152,15 @@ const KiatuPresentation = () => {
                 </div>
 
                 {/* Social Proof */}
-                <div className="px-8 py-12 bg-gray-50 border-y border-gray-100">
+                <div className="px-8 py-12 bg-slate-900 border-y border-slate-700">
                   <div className="max-w-6xl mx-auto text-center">
-                    <p className="text-sm text-gray-600 mb-8 font-medium">
+                    <p className="text-sm text-slate-400 mb-8 font-medium">
                       A confiança de profissionais e empresas de topo em Angola
                     </p>
-                    <div className="flex justify-center items-center space-x-12 opacity-60">
+                    <div className="flex justify-center items-center space-x-12 opacity-50">
                       {companies.map((company, index) => (
-                        <div key={index} className={`${company.width} h-8 bg-gray-300 rounded flex items-center justify-center`}>
-                          <span className="text-xs font-medium text-gray-500">{company.name}</span>
+                        <div key={index} className={`${company.width} h-8 bg-slate-600 rounded flex items-center justify-center`}>
+                          <span className="text-xs font-medium text-slate-300">{company.name}</span>
                         </div>
                       ))}
                     </div>
@@ -172,10 +172,10 @@ const KiatuPresentation = () => {
                   <div className="max-w-6xl mx-auto">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                       <div className="space-y-6">
-                        <h2 className="text-4xl font-bold text-gray-900 leading-tight">
+                        <h2 className="text-4xl font-bold text-white leading-tight">
                           Mostre o seu<br />Melhor Trabalho
                         </h2>
-                        <p className="text-lg text-gray-600 leading-relaxed">
+                        <p className="text-lg text-slate-300 leading-relaxed">
                           Faça o upload de imagens, adicione links de projectos e inclua vídeos do YouTube para criar um portfólio visualmente rico que prova as suas competências.
                         </p>
                         <div className="flex items-center space-x-2 text-emerald-600">
@@ -188,7 +188,7 @@ const KiatuPresentation = () => {
                         </div>
                       </div>
                       <div className="relative">
-                        <div className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl p-8 shadow-xl">
+                        <div className="bg-gradient-to-br from-slate-700 to-slate-800 rounded-2xl p-8 shadow-xl">
                           <div className="space-y-4">
                             <div className="grid grid-cols-3 gap-3">
                               <div className="aspect-square bg-gradient-to-br from-emerald-400 to-blue-500 rounded-lg"></div>
@@ -200,8 +200,8 @@ const KiatuPresentation = () => {
                               </div>
                             </div>
                             <div className="space-y-2">
-                              <div className="h-4 bg-gray-300 rounded w-3/4"></div>
-                              <div className="h-3 bg-gray-300 rounded w-1/2"></div>
+                              <div className="h-4 bg-slate-600 rounded w-3/4"></div>
+                              <div className="h-3 bg-slate-600 rounded w-1/2"></div>
                             </div>
                           </div>
                         </div>
@@ -211,13 +211,13 @@ const KiatuPresentation = () => {
                 </div>
 
                 {/* Feature Showcase B */}
-                <div className="px-8 py-20 bg-gray-50">
+                <div className="px-8 py-20 bg-slate-900">
                   <div className="max-w-6xl mx-auto">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                       <div className="relative order-2 lg:order-1">
-                        <div className="bg-white rounded-2xl p-6 shadow-xl border border-gray-100">
+                        <div className="bg-slate-800 rounded-2xl p-6 shadow-xl border border-slate-700">
                           <div className="mb-4">
-                            <h4 className="text-sm font-semibold text-gray-700 mb-3">Pré-visualização ao Vivo</h4>
+                            <h4 className="text-sm font-semibold text-slate-300 mb-3">Pré-visualização ao Vivo</h4>
                             <div 
                               className="h-32 rounded-xl p-4 text-white relative overflow-hidden"
                               style={{ background: themes[selectedTheme].preview }}
@@ -243,10 +243,10 @@ const KiatuPresentation = () => {
                         </div>
                       </div>
                       <div className="space-y-6 order-1 lg:order-2">
-                        <h2 className="text-4xl font-bold text-gray-900 leading-tight">
+                        <h2 className="text-4xl font-bold text-white leading-tight">
                           Personalização<br />Total
                         </h2>
-                        <p className="text-lg text-gray-600 leading-relaxed">
+                        <p className="text-lg text-slate-300 leading-relaxed">
                           Escolha entre temas de cores deslumbrantes, ajuste a tipografia e organize as secções para criar um perfil que reflete verdadeiramente a sua identidade profissional.
                         </p>
                         <div className="flex items-center space-x-2 text-emerald-600">
@@ -266,44 +266,44 @@ const KiatuPresentation = () => {
                 <div className="px-8 py-20">
                   <div className="max-w-6xl mx-auto">
                     <div className="text-center mb-16">
-                      <h2 className="text-4xl font-bold text-gray-900 mb-4">
+                      <h2 className="text-4xl font-bold text-white mb-4">
                         Tudo o Que Precisa Para Se Destacar
                       </h2>
-                      <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                      <p className="text-lg text-slate-300 max-w-2xl mx-auto">
                         Ferramentas profissionais que fazem a diferença no seu networking e carreira
                       </p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                       {/* Card 1 */}
-                      <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+                      <div className="bg-slate-800 rounded-2xl p-8 shadow-lg border border-slate-700 hover:shadow-xl transition-shadow duration-300">
                         <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6">
                           <QRCode className="w-8 h-8 text-white" />
                         </div>
-                        <h3 className="text-xl font-bold text-gray-900 mb-4">Contacto Instantâneo</h3>
-                        <p className="text-gray-600 leading-relaxed">
+                        <h3 className="text-xl font-bold text-white mb-4">Contacto Instantâneo</h3>
+                        <p className="text-slate-300 leading-relaxed">
                           O seu perfil gera um QR Code único. Perfeito para partilhar em cartões de visita físicos ou em eventos de networking.
                         </p>
                       </div>
 
                       {/* Card 2 */}
-                      <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+                      <div className="bg-slate-800 rounded-2xl p-8 shadow-lg border border-slate-700 hover:shadow-xl transition-shadow duration-300">
                         <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6">
                           <BarChart3 className="w-8 h-8 text-white" />
                         </div>
-                        <h3 className="text-xl font-bold text-gray-900 mb-4">Veja Quem o Viu</h3>
-                        <p className="text-gray-600 leading-relaxed">
+                        <h3 className="text-xl font-bold text-white mb-4">Veja Quem o Viu</h3>
+                        <p className="text-slate-300 leading-relaxed">
                           Saiba quantas pessoas visitaram o seu perfil e de onde vêm, para entender o seu alcance profissional.
                         </p>
                       </div>
 
                       {/* Card 3 */}
-                      <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+                      <div className="bg-slate-800 rounded-2xl p-8 shadow-lg border border-slate-700 hover:shadow-xl transition-shadow duration-300">
                         <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6">
                           <FileDown className="w-8 h-8 text-white" />
                         </div>
-                        <h3 className="text-xl font-bold text-gray-900 mb-4">CV para Download</h3>
-                        <p className="text-gray-600 leading-relaxed">
+                        <h3 className="text-xl font-bold text-white mb-4">CV para Download</h3>
+                        <p className="text-slate-300 leading-relaxed">
                           Permita que recrutadores descarreguem uma versão PDF do seu CV directamente do seu perfil Kiatu.
                         </p>
                       </div>
@@ -320,7 +320,7 @@ const KiatuPresentation = () => {
                     <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
                       Junte-se a milhares de profissionais que já transformaram a sua presença digital
                     </p>
-                    <button className="bg-white hover:bg-gray-100 text-gray-900 font-semibold py-4 px-12 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 text-lg flex items-center gap-3 mx-auto">
+                    <button className="bg-white hover:bg-slate-100 text-slate-900 font-semibold py-4 px-12 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 text-lg flex items-center gap-3 mx-auto">
                       Comece Grátis
                       <ArrowRight className="w-5 h-5" />
                     </button>
@@ -330,28 +330,28 @@ const KiatuPresentation = () => {
             </div>
 
             {/* Panel 2: User Dashboard */}
-            <div className="bg-gray-50 border-l border-gray-200">
+            <div className="bg-slate-900 border-l border-slate-700">
               <div className="p-8">
-                <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">User Dashboard</h2>
+                <h2 className="text-2xl font-bold text-white mb-8 text-center">User Dashboard</h2>
                 
-                <div className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200">
+                <div className="bg-slate-800 rounded-2xl shadow-lg overflow-hidden border border-slate-700">
                   <div className="flex h-[600px]">
                     {/* Sidebar */}
-                    <div className="w-64 bg-gray-50 border-r border-gray-200 p-6">
+                    <div className="w-64 bg-slate-900 border-r border-slate-700 p-6">
                       <nav className="space-y-2">
-                        <div className="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg cursor-pointer transition-colors">
+                        <div className="flex items-center gap-3 px-4 py-3 text-slate-300 hover:bg-slate-800 rounded-lg cursor-pointer transition-colors">
                           <User className="w-5 h-5" />
                           <span className="font-medium">Editar Perfil</span>
                         </div>
-                        <div className="flex items-center gap-3 px-4 py-3 bg-gradient-to-r from-emerald-100 to-blue-100 text-emerald-700 rounded-lg cursor-pointer">
+                        <div className="flex items-center gap-3 px-4 py-3 bg-gradient-to-r from-emerald-500/20 to-blue-500/20 text-emerald-400 rounded-lg cursor-pointer">
                           <Palette className="w-5 h-5" />
                           <span className="font-medium">Aparência</span>
                         </div>
-                        <div className="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg cursor-pointer transition-colors">
+                        <div className="flex items-center gap-3 px-4 py-3 text-slate-300 hover:bg-slate-800 rounded-lg cursor-pointer transition-colors">
                           <Settings className="w-5 h-5" />
                           <span className="font-medium">Conta</span>
                         </div>
-                        <div className="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg cursor-pointer mt-8 transition-colors">
+                        <div className="flex items-center gap-3 px-4 py-3 text-slate-300 hover:bg-slate-800 rounded-lg cursor-pointer mt-8 transition-colors">
                           <LogOut className="w-5 h-5" />
                           <span className="font-medium">Sair</span>
                         </div>
@@ -360,19 +360,19 @@ const KiatuPresentation = () => {
 
                     {/* Main Content */}
                     <div className="flex-1 p-6">
-                      <h3 className="text-xl font-bold text-gray-900 mb-6">Aparência do Perfil</h3>
+                      <h3 className="text-xl font-bold text-white mb-6">Aparência do Perfil</h3>
                       
                       {/* Live Preview */}
                       <div className="mb-8">
-                        <h4 className="text-sm font-semibold text-gray-700 mb-3">Pré-visualização</h4>
-                        <div className="border-2 border-gray-200 rounded-xl overflow-hidden shadow-sm">
-                          <div className="bg-gray-100 px-4 py-2 border-b border-gray-200 flex items-center gap-2">
+                        <h4 className="text-sm font-semibold text-slate-300 mb-3">Pré-visualização</h4>
+                        <div className="border-2 border-slate-600 rounded-xl overflow-hidden shadow-sm">
+                          <div className="bg-slate-700 px-4 py-2 border-b border-slate-600 flex items-center gap-2">
                             <div className="flex gap-1">
                               <div className="w-3 h-3 bg-red-400 rounded-full"></div>
                               <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
                               <div className="w-3 h-3 bg-green-400 rounded-full"></div>
                             </div>
-                            <div className="flex-1 bg-white rounded px-3 py-1 text-xs text-gray-500 text-center">
+                            <div className="flex-1 bg-slate-800 rounded px-3 py-1 text-xs text-slate-400 text-center">
                               kiatu.me/seu-perfil
                             </div>
                           </div>
@@ -398,7 +398,7 @@ const KiatuPresentation = () => {
 
                       {/* Color Switcher */}
                       <div>
-                        <h4 className="text-sm font-semibold text-gray-700 mb-4">Selecione o seu Tema</h4>
+                        <h4 className="text-sm font-semibold text-slate-300 mb-4">Selecione o seu Tema</h4>
                         <div className="grid grid-cols-2 gap-4">
                           {themes.map((theme, index) => (
                             <button
@@ -407,8 +407,9 @@ const KiatuPresentation = () => {
                               className={`aspect-square rounded-xl ${theme.gradient} relative overflow-hidden transition-all duration-300 hover:scale-105 ${
                                 selectedTheme === index 
                                   ? 'ring-4 ring-emerald-500 ring-offset-2 shadow-lg' 
-                                  : 'ring-2 ring-gray-200 hover:ring-gray-300 shadow-md'
+                                  : 'ring-2 ring-slate-600 hover:ring-slate-500 shadow-md'
                               }`}
+                              style={{ ringOffsetColor: '#0f172a' }}
                             >
                               {selectedTheme === index && (
                                 <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
@@ -420,7 +421,7 @@ const KiatuPresentation = () => {
                             </button>
                           ))}
                         </div>
-                        <p className="text-xs text-gray-500 mt-3 text-center">
+                        <p className="text-xs text-slate-400 mt-3 text-center">
                           {themes[selectedTheme].name}
                         </p>
                       </div>
@@ -434,7 +435,7 @@ const KiatuPresentation = () => {
 
         {/* Footer */}
         <div className="text-center mt-12">
-          <p className="text-gray-500 font-medium">Professional Design Mockup - Kiatu Digital Business Card Platform</p>
+          <p className="text-slate-400 font-medium">Professional Design Mockup - Kiatu Digital Business Card Platform</p>
         </div>
       </div>
     </div>
