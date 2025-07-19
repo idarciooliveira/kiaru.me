@@ -1,4 +1,5 @@
 import React from "react";
+import { Routes, Route } from "react-router";
 import {
   Mail,
   Phone,
@@ -13,8 +14,18 @@ import {
   Plus,
   Trash2,
 } from "lucide-react";
+import KiatuPresentation from "./pages/KiatuPresentation";
 
 function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<Portfolio />} />
+      <Route path="/kiatu" element={<KiatuPresentation />} />
+    </Routes>
+  );
+}
+
+function Portfolio() {
   const [isEditMode, setIsEditMode] = React.useState(false);
   const [selectedProject, setSelectedProject] = React.useState<any>(null);
   const [currentImageIndex, setCurrentImageIndex] = React.useState(0);
