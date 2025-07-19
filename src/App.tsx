@@ -29,6 +29,30 @@ function Portfolio() {
   const [isEditMode, setIsEditMode] = React.useState(false);
   const [selectedProject, setSelectedProject] = React.useState<any>(null);
   const [currentImageIndex, setCurrentImageIndex] = React.useState(0);
+  const [selectedTheme, setSelectedTheme] = React.useState(0);
+
+  const themes = [
+    {
+      name: 'Blue Ocean',
+      gradient: 'bg-gradient-to-br from-gray-900 via-blue-900 to-slate-800',
+      class: 'from-gray-900 via-blue-900 to-slate-800'
+    },
+    {
+      name: 'Emerald Night',
+      gradient: 'bg-gradient-to-br from-gray-900 via-emerald-900 to-slate-800',
+      class: 'from-gray-900 via-emerald-900 to-slate-800'
+    },
+    {
+      name: 'Purple Dusk',
+      gradient: 'bg-gradient-to-br from-gray-900 via-purple-900 to-slate-800',
+      class: 'from-gray-900 via-purple-900 to-slate-800'
+    },
+    {
+      name: 'Rose Twilight',
+      gradient: 'bg-gradient-to-br from-gray-900 via-rose-900 to-slate-800',
+      class: 'from-gray-900 via-rose-900 to-slate-800'
+    }
+  ];
 
   // Profile data state
   const [profileData, setProfileData] = React.useState({
@@ -285,8 +309,30 @@ function Portfolio() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-slate-800 p-4">
+    <div className={`min-h-screen bg-gradient-to-br ${themes[selectedTheme].class} p-4 transition-all duration-700`}>
       <div className="max-w-md rounded-2xl p-4 mx-auto bg-gradient-to-br from-gray-900 via-blue-900 to-slate-800 text-white">
+        {/* Color Picker - Only show when not in edit mode */}
+        {!isEditMode && (
+          <div className="absolute top-4 left-4 z-10">
+            <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-3 shadow-2xl">
+              <div className="grid grid-cols-2 gap-2">
+                {themes.map((theme, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setSelectedTheme(index)}
+                    className={`w-8 h-8 rounded-lg bg-gradient-to-br ${theme.class} transition-all duration-300 hover:scale-110 ${
+                      selectedTheme === index 
+                        ? 'ring-2 ring-white/60 shadow-lg scale-110' 
+                        : 'hover:ring-1 hover:ring-white/40'
+                    }`}
+                    title={theme.name}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Edit Profile Button */}
         <div className="absolute top-12 right-4 z-10">
           <button
