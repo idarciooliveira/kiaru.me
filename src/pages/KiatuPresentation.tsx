@@ -1,445 +1,440 @@
-import React, { useState } from 'react';
-import { Monitor, Palette, User, Settings, LogOut, Chrome, Code as QRCode, BarChart3, FileDown, Play, ArrowRight, Check } from 'lucide-react';
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import {
+  ArrowRight,
+  Sparkles,
+  Zap,
+  Users,
+  CheckCircle,
+  Star,
+} from "lucide-react";
+import { Link, useNavigate } from "react-router";
 
-const KiatuPresentation = () => {
-  const [selectedTheme, setSelectedTheme] = useState(0);
-
-  const themes = [
-    {
-      name: 'Vibrant Red to Black',
-      gradient: 'bg-gradient-to-br from-red-500 via-red-600 to-black',
-      preview: 'linear-gradient(135deg, #ef4444 0%, #dc2626 50%, #000000 100%)'
-    },
-    {
-      name: 'Deep Blue to Dark Grey',
-      gradient: 'bg-gradient-to-br from-blue-600 via-blue-800 to-gray-900',
-      preview: 'linear-gradient(135deg, #2563eb 0%, #1e40af 50%, #111827 100%)'
-    },
-    {
-      name: 'Classic Navy Blue',
-      gradient: 'bg-gradient-to-br from-blue-900 via-blue-950 to-slate-900',
-      preview: 'linear-gradient(135deg, #1e3a8a 0%, #0f172a 50%, #0f172a 100%)'
-    },
-    {
-      name: 'Lush Green to Ocean Blue',
-      gradient: 'bg-gradient-to-br from-emerald-500 via-teal-600 to-blue-700',
-      preview: 'linear-gradient(135deg, #10b981 0%, #0d9488 50%, #1d4ed8 100%)'
-    }
-  ];
-
-  const companies = [
-    { name: 'Sonangol', width: 'w-20' },
-    { name: 'BAI', width: 'w-16' },
-    { name: 'Unitel', width: 'w-18' },
-    { name: 'BFA', width: 'w-14' },
-    { name: 'Multichoice', width: 'w-22' }
-  ];
-
+export default function Home() {
+  const navigation = useNavigate();
   return (
-    <div className="min-h-screen bg-slate-900">
-      <div className="max-w-[1600px] mx-auto p-8">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-white mb-4 tracking-tight">Kiatu</h1>
-          <p className="text-xl text-slate-400 font-medium">Product Design Presentation</p>
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl"></div>
+        <div className="absolute top-3/4 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 left-1/2 w-96 h-96 bg-indigo-500/20 rounded-full blur-3xl"></div>
+      </div>
+
+      {/* Navigation */}
+      <nav className="relative z-50 border-b border-white/20 backdrop-blur-xl bg-white/5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center shadow-lg">
+                <div className="grid grid-cols-2 gap-0.5">
+                  <div className="w-1.5 h-1.5 bg-blue-400 rounded-sm"></div>
+                  <div className="w-1.5 h-1.5 bg-green-400 rounded-sm"></div>
+                  <div className="w-1.5 h-1.5 bg-purple-400 rounded-sm"></div>
+                  <div className="w-1.5 h-1.5 bg-red-400 rounded-sm"></div>
+                </div>
+              </div>
+              <span className="text-white font-semibold text-lg">
+                ProfileGen
+              </span>
+            </div>
+            <div className="flex items-center gap-6">
+              <Link
+                to="#features"
+                className="text-slate-300 hover:text-white transition-colors"
+              >
+                Features
+              </Link>
+              <Link
+                to="#examples"
+                className="text-slate-300 hover:text-white transition-colors"
+              >
+                Examples
+              </Link>
+              <Link
+                to="#pricing"
+                className="text-slate-300 hover:text-white transition-colors"
+              >
+                Pricing
+              </Link>
+              <Button
+                onClick={() => navigation("/login")}
+                className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 backdrop-blur-sm border border-blue-500/30 shadow-lg"
+              >
+                Get Started
+              </Button>
+            </div>
+          </div>
         </div>
+      </nav>
 
-        {/* Main Presentation Container */}
-        <div className="bg-slate-800 rounded-3xl shadow-2xl overflow-hidden border border-slate-700">
-          <div className="grid grid-cols-1 xl:grid-cols-2 min-h-[800px]">
-            
-            {/* Panel 1: Full Landing Page */}
-            <div className="bg-slate-800 overflow-y-auto max-h-[800px]">
-              <div className="space-y-0">
-                
-                {/* Header */}
-                <div className="bg-slate-800 px-8 py-6 border-b border-slate-700 sticky top-0 z-10">
-                  <div className="flex items-center justify-between max-w-6xl mx-auto">
-                    <div className="text-3xl font-bold bg-gradient-to-r from-emerald-500 to-blue-600 bg-clip-text text-transparent">
-                      Kiatu
-                    </div>
-                    <button className="px-6 py-2 text-slate-300 hover:text-white font-medium rounded-lg hover:bg-slate-700 transition-colors">
-                      Login
-                    </button>
+      {/* Hero Section */}
+      <section className="relative overflow-hidden z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-8">
+              <div className="space-y-4">
+                <Badge className="bg-blue-500/20 text-blue-300 border border-blue-500/30 backdrop-blur-sm shadow-lg">
+                  <Sparkles className="w-3 h-3 mr-1" />
+                  AI-Powered Profile Generation
+                </Badge>
+                <h1 className="text-5xl lg:text-6xl font-bold text-white leading-tight">
+                  Generate Premium
+                  <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                    {" "}
+                    Professional Profiles
+                  </span>
+                </h1>
+                <p className="text-xl text-slate-300 leading-relaxed">
+                  Create stunning, developer-centric professional profiles that
+                  serve as powerful digital business cards. Perfect for
+                  recruiters, hiring managers, and professional collaborators.
+                </p>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button
+                  size="lg"
+                  className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-lg px-8 backdrop-blur-sm border border-blue-500/30 shadow-xl"
+                >
+                  Generate Your Profile
+                  <ArrowRight className="w-5 h-5 ml-2" />
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border border-white/20 text-slate-300 hover:bg-white/10 bg-white/5 backdrop-blur-sm shadow-lg"
+                >
+                  View Examples
+                </Button>
+              </div>
+
+              <div className="flex items-center gap-8 pt-4">
+                <div className="text-center bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10 shadow-lg">
+                  <div className="text-2xl font-bold text-white">10K+</div>
+                  <div className="text-sm text-slate-400">
+                    Profiles Generated
                   </div>
                 </div>
+                <div className="text-center bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10 shadow-lg">
+                  <div className="text-2xl font-bold text-white">95%</div>
+                  <div className="text-sm text-slate-400">Success Rate</div>
+                </div>
+                <div className="text-center bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10 shadow-lg">
+                  <div className="text-2xl font-bold text-white">4.9★</div>
+                  <div className="text-sm text-slate-400">User Rating</div>
+                </div>
+              </div>
+            </div>
 
-                {/* Hero Section */}
-                <div className="px-8 py-16 bg-gradient-to-br from-slate-800 to-slate-900">
-                  <div className="max-w-6xl mx-auto text-center">
-                    <h1 className="text-5xl font-bold text-white mb-6 leading-tight tracking-tight">
-                      O Seu Perfil Profissional,<br />
-                      <span className="bg-gradient-to-r from-emerald-500 to-blue-600 bg-clip-text text-transparent">
-                        Reinventado
-                      </span>
-                    </h1>
-                    <p className="text-xl text-slate-300 mb-12 max-w-3xl mx-auto leading-relaxed">
-                      Crie, personalize e partilhe uma página impressionante que une o seu CV, portfólio e contactos. Sem precisar de código.
-                    </p>
-
-                    {/* Device Mockups */}
-                    <div className="mb-12 flex justify-center items-end space-x-8">
-                      {/* Phone Mockup */}
-                      <div className="relative">
-                        <div className="w-56 h-[480px] bg-slate-900 rounded-[3rem] p-3 shadow-2xl transform rotate-3">
-                          <div 
-                            className="w-full h-full rounded-[2.5rem] overflow-hidden relative"
-                            style={{ background: themes[selectedTheme].preview }}
-                          >
-                            <div className="p-6 text-white">
-                              <div className="w-20 h-20 bg-white/20 rounded-full mb-4 mx-auto"></div>
-                              <div className="text-center space-y-3">
-                                <div className="h-5 bg-white/30 rounded mb-2"></div>
-                                <div className="h-4 bg-white/20 rounded mb-6 w-3/4 mx-auto"></div>
-                                <div className="grid grid-cols-4 gap-2 mb-6">
-                                  <div className="aspect-square bg-white/20 rounded-lg"></div>
-                                  <div className="aspect-square bg-white/20 rounded-lg"></div>
-                                  <div className="aspect-square bg-white/20 rounded-lg"></div>
-                                  <div className="aspect-square bg-white/20 rounded-lg"></div>
-                                </div>
-                                <div className="space-y-2">
-                                  <div className="h-3 bg-white/20 rounded"></div>
-                                  <div className="h-3 bg-white/20 rounded w-4/5 mx-auto"></div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Laptop Mockup */}
-                      <div className="relative">
-                        <div className="w-80 h-52 bg-slate-900 rounded-t-2xl p-2 shadow-2xl transform -rotate-2">
-                          <div 
-                            className="w-full h-full rounded-xl overflow-hidden"
-                            style={{ background: themes[selectedTheme].preview }}
-                          >
-                            <div className="p-4 text-white">
-                              <div className="flex items-start space-x-4">
-                                <div className="w-16 h-16 bg-white/20 rounded-full flex-shrink-0"></div>
-                                <div className="flex-1 space-y-2">
-                                  <div className="h-4 bg-white/30 rounded w-3/4"></div>
-                                  <div className="h-3 bg-white/20 rounded w-1/2"></div>
-                                  <div className="h-2 bg-white/20 rounded w-full"></div>
-                                  <div className="h-2 bg-white/20 rounded w-4/5"></div>
-                                </div>
-                              </div>
-                              <div className="grid grid-cols-6 gap-1 mt-4">
-                                {[...Array(6)].map((_, i) => (
-                                  <div key={i} className="aspect-square bg-white/20 rounded"></div>
-                                ))}
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="w-80 h-4 bg-slate-800 rounded-b-2xl shadow-lg"></div>
-                      </div>
+            {/* Profile Preview */}
+            <div className="relative">
+              <div className="bg-white/10 backdrop-blur-xl rounded-2xl p-8 border border-white/20 shadow-2xl">
+                <div className="space-y-6">
+                  {/* Profile Header */}
+                  <div className="flex items-start gap-4">
+                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-orange-400 to-red-500 overflow-hidden flex-shrink-0 shadow-lg border border-white/20">
+                      <img
+                        src="/placeholder.svg?height=64&width=64"
+                        alt="Alex Rodriguez"
+                        className="w-full h-full object-cover"
+                      />
                     </div>
-
-                    {/* CTAs */}
-                    <div className="space-y-4">
-                      <button className="bg-gradient-to-r from-emerald-500 to-blue-600 hover:from-emerald-600 hover:to-blue-700 text-white font-semibold py-4 px-12 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 text-lg">
-                        Comece Grátis
-                      </button>
-                      <div>
-                        <button className="bg-slate-700 hover:bg-slate-600 text-slate-200 font-medium py-3 px-8 rounded-xl border border-slate-600 transition-colors flex items-center justify-center gap-3 mx-auto">
-                          <Chrome className="w-5 h-5" />
-                          Inscreva-se com Google
-                        </button>
-                      </div>
+                    <div className="flex-1">
+                      <h3 className="text-white text-xl font-bold mb-1">
+                        Alex Rodriguez
+                      </h3>
+                      <p className="text-blue-200 text-sm font-medium mb-2">
+                        Senior Product Designer
+                      </p>
+                      <p className="text-blue-300 text-xs leading-relaxed">
+                        Passionate designer crafting digital experiences that
+                        blend creativity with user-centered thinking.
+                      </p>
                     </div>
                   </div>
-                </div>
 
-                {/* Social Proof */}
-                <div className="px-8 py-12 bg-slate-900 border-y border-slate-700">
-                  <div className="max-w-6xl mx-auto text-center">
-                    <p className="text-sm text-slate-400 mb-8 font-medium">
-                      A confiança de profissionais e empresas de topo em Angola
-                    </p>
-                    <div className="flex justify-center items-center space-x-12 opacity-50">
-                      {companies.map((company, index) => (
-                        <div key={index} className={`${company.width} h-8 bg-slate-600 rounded flex items-center justify-center`}>
-                          <span className="text-xs font-medium text-slate-300">{company.name}</span>
+                  {/* Contact Buttons */}
+                  <div className="grid grid-cols-4 gap-2">
+                    {["Email", "Phone", "LinkedIn", "Portfolio"].map(
+                      (contact) => (
+                        <div
+                          key={contact}
+                          className="bg-white/10 backdrop-blur-sm rounded-lg p-2 text-center border border-white/20 hover:bg-white/20 transition-colors shadow-lg"
+                        >
+                          <div className="w-4 h-4 mx-auto mb-1 text-blue-200">
+                            <div className="w-full h-full bg-current rounded-sm"></div>
+                          </div>
+                          <span className="text-blue-200 text-xs">
+                            {contact}
+                          </span>
                         </div>
+                      )
+                    )}
+                  </div>
+
+                  {/* Projects Grid */}
+                  <div>
+                    <h4 className="text-white font-semibold mb-3 flex items-center gap-2">
+                      <div className="w-4 h-4 bg-blue-400 rounded shadow-lg"></div>
+                      Key Projects
+                    </h4>
+                    <div className="grid grid-cols-3 gap-2">
+                      {Array.from({ length: 6 }).map((_, i) => (
+                        <div
+                          key={i}
+                          className="aspect-square bg-gradient-to-br from-purple-500/80 to-pink-500/80 rounded-lg backdrop-blur-sm border border-white/20 shadow-lg hover:scale-105 transition-transform"
+                        ></div>
                       ))}
                     </div>
                   </div>
                 </div>
+              </div>
 
-                {/* Feature Showcase A */}
-                <div className="px-8 py-20">
-                  <div className="max-w-6xl mx-auto">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                      <div className="space-y-6">
-                        <h2 className="text-4xl font-bold text-white leading-tight">
-                          Mostre o seu<br />Melhor Trabalho
-                        </h2>
-                        <p className="text-lg text-slate-300 leading-relaxed">
-                          Faça o upload de imagens, adicione links de projectos e inclua vídeos do YouTube para criar um portfólio visualmente rico que prova as suas competências.
-                        </p>
-                        <div className="flex items-center space-x-2 text-emerald-600">
-                          <Check className="w-5 h-5" />
-                          <span className="font-medium">Upload ilimitado de imagens</span>
-                        </div>
-                        <div className="flex items-center space-x-2 text-emerald-600">
-                          <Check className="w-5 h-5" />
-                          <span className="font-medium">Integração com YouTube</span>
-                        </div>
-                      </div>
-                      <div className="relative">
-                        <div className="bg-gradient-to-br from-slate-700 to-slate-800 rounded-2xl p-8 shadow-xl">
-                          <div className="space-y-4">
-                            <div className="grid grid-cols-3 gap-3">
-                              <div className="aspect-square bg-gradient-to-br from-emerald-400 to-blue-500 rounded-lg"></div>
-                              <div className="aspect-square bg-gradient-to-br from-purple-400 to-pink-500 rounded-lg"></div>
-                              <div className="aspect-square bg-gradient-to-br from-orange-400 to-red-500 rounded-lg relative">
-                                <div className="absolute inset-0 flex items-center justify-center">
-                                  <Play className="w-6 h-6 text-white" />
-                                </div>
-                              </div>
-                            </div>
-                            <div className="space-y-2">
-                              <div className="h-4 bg-slate-600 rounded w-3/4"></div>
-                              <div className="h-3 bg-slate-600 rounded w-1/2"></div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+              {/* Floating Elements */}
+              <div className="absolute -top-4 -right-4 w-8 h-8 bg-blue-500/60 rounded-full animate-pulse backdrop-blur-sm border border-blue-400/30 shadow-lg"></div>
+              <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-purple-500/60 rounded-full animate-pulse delay-1000 backdrop-blur-sm border border-purple-400/30 shadow-lg"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section
+        id="features"
+        className="py-24 border-t border-white/20 relative z-10"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-white mb-4">
+              Everything You Need for a
+              <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                {" "}
+                Professional Presence
+              </span>
+            </h2>
+            <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+              Our AI-powered platform generates comprehensive professional
+              profiles that showcase your skills, experience, and projects in a
+              clean, developer-centric design.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                icon: <Zap className="w-6 h-6" />,
+                title: "AI-Powered Generation",
+                description:
+                  "Advanced AI analyzes your input to create compelling copy and optimal layout structures automatically.",
+              },
+              {
+                icon: <Users className="w-6 h-6" />,
+                title: "Recruiter-Optimized",
+                description:
+                  "Designed specifically for hiring managers and recruiters to quickly assess your value and expertise.",
+              },
+              {
+                icon: <CheckCircle className="w-6 h-6" />,
+                title: "Complete Profiles",
+                description:
+                  "Includes contact info, project showcases, experience timeline, skills, and education sections.",
+              },
+              {
+                icon: <Star className="w-6 h-6" />,
+                title: "Premium Design",
+                description:
+                  "Clean, minimalist aesthetic inspired by top developer tools like Replicate.com and GitHub.",
+              },
+              {
+                icon: <Sparkles className="w-6 h-6" />,
+                title: "Instant Export",
+                description:
+                  "Generate and export your profile in multiple formats: PDF, HTML, or shareable link.",
+              },
+              {
+                icon: <ArrowRight className="w-6 h-6" />,
+                title: "Mobile Responsive",
+                description:
+                  "Profiles look perfect on all devices, ensuring accessibility for all viewers.",
+              },
+            ].map((feature, index) => (
+              <Card
+                key={index}
+                className="bg-white/10 border border-white/20 backdrop-blur-xl hover:bg-white/15 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105"
+              >
+                <CardContent className="p-6">
+                  <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mb-4 text-blue-400 backdrop-blur-sm border border-blue-500/30 shadow-lg">
+                    {feature.icon}
                   </div>
-                </div>
+                  <h3 className="text-white font-semibold text-lg mb-2">
+                    {feature.title}
+                  </h3>
+                  <p className="text-slate-300 leading-relaxed">
+                    {feature.description}
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
 
-                {/* Feature Showcase B */}
-                <div className="px-8 py-20 bg-slate-900">
-                  <div className="max-w-6xl mx-auto">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                      <div className="relative order-2 lg:order-1">
-                        <div className="bg-slate-800 rounded-2xl p-6 shadow-xl border border-slate-700">
-                          <div className="mb-4">
-                            <h4 className="text-sm font-semibold text-slate-300 mb-3">Pré-visualização ao Vivo</h4>
-                            <div 
-                              className="h-32 rounded-xl p-4 text-white relative overflow-hidden"
-                              style={{ background: themes[selectedTheme].preview }}
-                            >
-                              <div className="text-center">
-                                <div className="w-12 h-12 bg-white/20 rounded-full mb-2 mx-auto"></div>
-                                <div className="h-3 bg-white/30 rounded mb-1 w-3/4 mx-auto"></div>
-                                <div className="h-2 bg-white/20 rounded w-1/2 mx-auto"></div>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="grid grid-cols-4 gap-2">
-                            {themes.map((theme, index) => (
-                              <button
-                                key={index}
-                                onClick={() => setSelectedTheme(index)}
-                                className={`aspect-square rounded-lg ${theme.gradient} transition-all duration-300 ${
-                                  selectedTheme === index ? 'ring-2 ring-emerald-500 scale-110' : 'hover:scale-105'
-                                }`}
-                              />
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                      <div className="space-y-6 order-1 lg:order-2">
-                        <h2 className="text-4xl font-bold text-white leading-tight">
-                          Personalização<br />Total
-                        </h2>
-                        <p className="text-lg text-slate-300 leading-relaxed">
-                          Escolha entre temas de cores deslumbrantes, ajuste a tipografia e organize as secções para criar um perfil que reflete verdadeiramente a sua identidade profissional.
-                        </p>
-                        <div className="flex items-center space-x-2 text-emerald-600">
-                          <Check className="w-5 h-5" />
-                          <span className="font-medium">Temas de cores premium</span>
-                        </div>
-                        <div className="flex items-center space-x-2 text-emerald-600">
-                          <Check className="w-5 h-5" />
-                          <span className="font-medium">Pré-visualização em tempo real</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+      {/* Example Profiles Section */}
+      <section
+        id="examples"
+        className="py-24 border-t border-white/20 relative z-10"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-white mb-4">
+              See What's Possible
+            </h2>
+            <p className="text-xl text-slate-300 max-w-2xl mx-auto">
+              Real profiles generated by our platform for professionals across
+              different industries.
+            </p>
+          </div>
 
-                {/* Why Kiatu Section */}
-                <div className="px-8 py-20">
-                  <div className="max-w-6xl mx-auto">
-                    <div className="text-center mb-16">
-                      <h2 className="text-4xl font-bold text-white mb-4">
-                        Tudo o Que Precisa Para Se Destacar
-                      </h2>
-                      <p className="text-lg text-slate-300 max-w-2xl mx-auto">
-                        Ferramentas profissionais que fazem a diferença no seu networking e carreira
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                name: "Sarah Chen",
+                role: "Full Stack Developer",
+                company: "Meta",
+                skills: ["React", "Node.js", "Python"],
+              },
+              {
+                name: "Marcus Johnson",
+                role: "UX Designer",
+                company: "Spotify",
+                skills: ["Figma", "User Research", "Prototyping"],
+              },
+              {
+                name: "Elena Vasquez",
+                role: "Data Scientist",
+                company: "Netflix",
+                skills: ["Machine Learning", "Python", "SQL"],
+              },
+            ].map((profile, index) => (
+              <Card
+                key={index}
+                className="bg-white/10 border border-white/20 backdrop-blur-xl hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-2xl hover:bg-white/15"
+              >
+                <CardContent className="p-6">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full shadow-lg border border-white/20"></div>
+                    <div>
+                      <h3 className="text-white font-semibold">
+                        {profile.name}
+                      </h3>
+                      <p className="text-blue-200 text-sm">{profile.role}</p>
+                      <p className="text-slate-400 text-xs">
+                        {profile.company}
                       </p>
                     </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                      {/* Card 1 */}
-                      <div className="bg-slate-800 rounded-2xl p-8 shadow-lg border border-slate-700 hover:shadow-xl transition-shadow duration-300">
-                        <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6">
-                          <QRCode className="w-8 h-8 text-white" />
-                        </div>
-                        <h3 className="text-xl font-bold text-white mb-4">Contacto Instantâneo</h3>
-                        <p className="text-slate-300 leading-relaxed">
-                          O seu perfil gera um QR Code único. Perfeito para partilhar em cartões de visita físicos ou em eventos de networking.
-                        </p>
-                      </div>
-
-                      {/* Card 2 */}
-                      <div className="bg-slate-800 rounded-2xl p-8 shadow-lg border border-slate-700 hover:shadow-xl transition-shadow duration-300">
-                        <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6">
-                          <BarChart3 className="w-8 h-8 text-white" />
-                        </div>
-                        <h3 className="text-xl font-bold text-white mb-4">Veja Quem o Viu</h3>
-                        <p className="text-slate-300 leading-relaxed">
-                          Saiba quantas pessoas visitaram o seu perfil e de onde vêm, para entender o seu alcance profissional.
-                        </p>
-                      </div>
-
-                      {/* Card 3 */}
-                      <div className="bg-slate-800 rounded-2xl p-8 shadow-lg border border-slate-700 hover:shadow-xl transition-shadow duration-300">
-                        <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6">
-                          <FileDown className="w-8 h-8 text-white" />
-                        </div>
-                        <h3 className="text-xl font-bold text-white mb-4">CV para Download</h3>
-                        <p className="text-slate-300 leading-relaxed">
-                          Permita que recrutadores descarreguem uma versão PDF do seu CV directamente do seu perfil Kiatu.
-                        </p>
-                      </div>
-                    </div>
                   </div>
-                </div>
-
-                {/* Final CTA */}
-                <div className="px-8 py-20 bg-gradient-to-r from-emerald-500 to-blue-600">
-                  <div className="max-w-4xl mx-auto text-center">
-                    <h2 className="text-4xl font-bold text-white mb-6">
-                      Pronto para criar o seu Kiatu?
-                    </h2>
-                    <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-                      Junte-se a milhares de profissionais que já transformaram a sua presença digital
-                    </p>
-                    <button className="bg-white hover:bg-slate-100 text-slate-900 font-semibold py-4 px-12 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 text-lg flex items-center gap-3 mx-auto">
-                      Comece Grátis
-                      <ArrowRight className="w-5 h-5" />
-                    </button>
+                  <div className="flex gap-2 flex-wrap">
+                    {profile.skills.map((skill) => (
+                      <Badge
+                        key={skill}
+                        className="bg-blue-500/20 text-blue-300 border border-blue-500/30 text-xs backdrop-blur-sm shadow-lg"
+                      >
+                        {skill}
+                      </Badge>
+                    ))}
                   </div>
-                </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-24 border-t border-white/20 relative z-10">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="bg-white/5 backdrop-blur-xl rounded-3xl p-12 border border-white/20 shadow-2xl">
+            <div className="space-y-8">
+              <h2 className="text-4xl lg:text-5xl font-bold text-white">
+                Ready to Create Your
+                <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                  {" "}
+                  Professional Profile?
+                </span>
+              </h2>
+              <p className="text-xl text-slate-300 max-w-2xl mx-auto">
+                Join thousands of professionals who've elevated their online
+                presence with our AI-powered profile generator.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button
+                  size="lg"
+                  className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-lg px-8 backdrop-blur-sm border border-blue-500/30 shadow-xl"
+                >
+                  Generate Profile Now
+                  <ArrowRight className="w-5 h-5 ml-2" />
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border border-white/20 text-slate-300 hover:bg-white/10 bg-white/5 backdrop-blur-sm shadow-lg"
+                >
+                  View Pricing
+                </Button>
               </div>
-            </div>
-
-            {/* Panel 2: User Dashboard */}
-            <div className="bg-slate-900 border-l border-slate-700">
-              <div className="p-8">
-                <h2 className="text-2xl font-bold text-white mb-8 text-center">User Dashboard</h2>
-                
-                <div className="bg-slate-800 rounded-2xl shadow-lg overflow-hidden border border-slate-700">
-                  <div className="flex h-[600px]">
-                    {/* Sidebar */}
-                    <div className="w-64 bg-slate-900 border-r border-slate-700 p-6">
-                      <nav className="space-y-2">
-                        <div className="flex items-center gap-3 px-4 py-3 text-slate-300 hover:bg-slate-800 rounded-lg cursor-pointer transition-colors">
-                          <User className="w-5 h-5" />
-                          <span className="font-medium">Editar Perfil</span>
-                        </div>
-                        <div className="flex items-center gap-3 px-4 py-3 bg-gradient-to-r from-emerald-500/20 to-blue-500/20 text-emerald-400 rounded-lg cursor-pointer">
-                          <Palette className="w-5 h-5" />
-                          <span className="font-medium">Aparência</span>
-                        </div>
-                        <div className="flex items-center gap-3 px-4 py-3 text-slate-300 hover:bg-slate-800 rounded-lg cursor-pointer transition-colors">
-                          <Settings className="w-5 h-5" />
-                          <span className="font-medium">Conta</span>
-                        </div>
-                        <div className="flex items-center gap-3 px-4 py-3 text-slate-300 hover:bg-slate-800 rounded-lg cursor-pointer mt-8 transition-colors">
-                          <LogOut className="w-5 h-5" />
-                          <span className="font-medium">Sair</span>
-                        </div>
-                      </nav>
-                    </div>
-
-                    {/* Main Content */}
-                    <div className="flex-1 p-6">
-                      <h3 className="text-xl font-bold text-white mb-6">Aparência do Perfil</h3>
-                      
-                      {/* Live Preview */}
-                      <div className="mb-8">
-                        <h4 className="text-sm font-semibold text-slate-300 mb-3">Pré-visualização</h4>
-                        <div className="border-2 border-slate-600 rounded-xl overflow-hidden shadow-sm">
-                          <div className="bg-slate-700 px-4 py-2 border-b border-slate-600 flex items-center gap-2">
-                            <div className="flex gap-1">
-                              <div className="w-3 h-3 bg-red-400 rounded-full"></div>
-                              <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
-                              <div className="w-3 h-3 bg-green-400 rounded-full"></div>
-                            </div>
-                            <div className="flex-1 bg-slate-800 rounded px-3 py-1 text-xs text-slate-400 text-center">
-                              kiatu.me/seu-perfil
-                            </div>
-                          </div>
-                          <div 
-                            className="h-48 p-6 text-white relative"
-                            style={{ background: themes[selectedTheme].preview }}
-                          >
-                            <div className="text-center">
-                              <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full mb-4 mx-auto flex items-center justify-center">
-                                <User className="w-8 h-8 text-white/80" />
-                              </div>
-                              <h5 className="text-lg font-bold mb-1">João Silva</h5>
-                              <p className="text-white/90 text-sm mb-3">Product Designer</p>
-                              <div className="flex justify-center gap-2">
-                                <div className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full"></div>
-                                <div className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full"></div>
-                                <div className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full"></div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Color Switcher */}
-                      <div>
-                        <h4 className="text-sm font-semibold text-slate-300 mb-4">Selecione o seu Tema</h4>
-                        <div className="grid grid-cols-2 gap-4">
-                          {themes.map((theme, index) => (
-                            <button
-                              key={index}
-                              onClick={() => setSelectedTheme(index)}
-                              className={`aspect-square rounded-xl ${theme.gradient} relative overflow-hidden transition-all duration-300 hover:scale-105 ${
-                                selectedTheme === index 
-                                  ? 'ring-4 ring-emerald-500 ring-offset-2 shadow-lg' 
-                                  : 'ring-2 ring-slate-600 hover:ring-slate-500 shadow-md'
-                              }`}
-                              style={{ ringOffsetColor: '#0f172a' }}
-                            >
-                              {selectedTheme === index && (
-                                <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
-                                  <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center">
-                                    <div className="w-3 h-3 bg-emerald-500 rounded-full"></div>
-                                  </div>
-                                </div>
-                              )}
-                            </button>
-                          ))}
-                        </div>
-                        <p className="text-xs text-slate-400 mt-3 text-center">
-                          {themes[selectedTheme].name}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              <div className="flex items-center justify-center gap-4 pt-4 text-sm text-slate-400">
+                <span className="flex items-center gap-1 bg-white/5 backdrop-blur-sm rounded-full px-3 py-1 border border-white/10">
+                  <CheckCircle className="w-4 h-4 text-green-400" />
+                  No credit card required
+                </span>
+                <span className="flex items-center gap-1 bg-white/5 backdrop-blur-sm rounded-full px-3 py-1 border border-white/10">
+                  <CheckCircle className="w-4 h-4 text-green-400" />
+                  Generate in 60 seconds
+                </span>
+                <span className="flex items-center gap-1 bg-white/5 backdrop-blur-sm rounded-full px-3 py-1 border border-white/10">
+                  <CheckCircle className="w-4 h-4 text-green-400" />
+                  Export anywhere
+                </span>
               </div>
             </div>
           </div>
         </div>
+      </section>
 
-        {/* Footer */}
-        <div className="text-center mt-12">
-          <p className="text-slate-400 font-medium">Professional Design Mockup - Kiatu Digital Business Card Platform</p>
+      {/* Footer */}
+      <footer className="border-t border-white/20 py-12 relative z-10 bg-white/5 backdrop-blur-xl">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <div className="flex items-center gap-2 mb-4 md:mb-0">
+              <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center shadow-lg">
+                <div className="grid grid-cols-2 gap-0.5">
+                  <div className="w-1.5 h-1.5 bg-blue-400 rounded-sm"></div>
+                  <div className="w-1.5 h-1.5 bg-green-400 rounded-sm"></div>
+                  <div className="w-1.5 h-1.5 bg-purple-400 rounded-sm"></div>
+                  <div className="w-1.5 h-1.5 bg-red-400 rounded-sm"></div>
+                </div>
+              </div>
+              <span className="text-white font-semibold">ProfileGen</span>
+            </div>
+            <div className="flex gap-6 text-slate-400">
+              <Link to="#" className="hover:text-white transition-colors">
+                Privacy
+              </Link>
+              <Link to="#" className="hover:text-white transition-colors">
+                Terms
+              </Link>
+              <Link to="#" className="hover:text-white transition-colors">
+                Support
+              </Link>
+            </div>
+          </div>
+          <div className="mt-8 pt-8 border-t border-white/20 text-center text-slate-400">
+            <p>&copy; 2024 ProfileGen. All rights reserved.</p>
+          </div>
         </div>
-      </div>
+      </footer>
     </div>
   );
-};
-
-export default KiatuPresentation;
+}

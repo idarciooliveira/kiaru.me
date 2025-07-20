@@ -13,6 +13,7 @@ import {
   Save,
   Plus,
   Trash2,
+  Clipboard,
 } from "lucide-react";
 import KiatuPresentation from "./pages/KiatuPresentation";
 
@@ -33,25 +34,25 @@ function Portfolio() {
 
   const themes = [
     {
-      name: 'Blue Ocean',
-      gradient: 'bg-gradient-to-br from-gray-900 via-blue-900 to-slate-800',
-      class: 'from-gray-900 via-blue-900 to-slate-800'
+      name: "Blue Ocean",
+      gradient: "bg-gradient-to-br from-gray-900 via-blue-900 to-slate-800",
+      class: "from-gray-900 via-blue-900 to-slate-800",
     },
     {
-      name: 'Emerald Night',
-      gradient: 'bg-gradient-to-br from-gray-900 via-emerald-900 to-slate-800',
-      class: 'from-gray-900 via-emerald-900 to-slate-800'
+      name: "Emerald Night",
+      gradient: "bg-gradient-to-br from-gray-900 via-emerald-900 to-slate-800",
+      class: "from-gray-900 via-emerald-900 to-slate-800",
     },
     {
-      name: 'Purple Dusk',
-      gradient: 'bg-gradient-to-br from-gray-900 via-purple-900 to-slate-800',
-      class: 'from-gray-900 via-purple-900 to-slate-800'
+      name: "Purple Dusk",
+      gradient: "bg-gradient-to-br from-gray-900 via-purple-900 to-slate-800",
+      class: "from-gray-900 via-purple-900 to-slate-800",
     },
     {
-      name: 'Rose Twilight',
-      gradient: 'bg-gradient-to-br from-gray-900 via-rose-900 to-slate-800',
-      class: 'from-gray-900 via-rose-900 to-slate-800'
-    }
+      name: "Rose Twilight",
+      gradient: "bg-gradient-to-br from-gray-900 via-rose-900 to-slate-800",
+      class: "from-gray-900 via-rose-900 to-slate-800",
+    },
   ];
 
   // Profile data state
@@ -309,8 +310,12 @@ function Portfolio() {
   };
 
   return (
-    <div className={`min-h-screen bg-gradient-to-br ${themes[selectedTheme].class} p-4 transition-all duration-700`}>
-      <div className={`max-w-md rounded-2xl p-4 mx-auto bg-gradient-to-br ${themes[selectedTheme].class} text-white transition-all duration-700`}>
+    <div
+      className={`min-h-screen bg-gradient-to-br ${themes[selectedTheme].class} p-4 transition-all duration-700`}
+    >
+      <div
+        className={`max-w-md rounded-2xl p-4 mx-auto bg-gradient-to-br ${themes[selectedTheme].class} text-white transition-all duration-700`}
+      >
         {/* Color Picker - Only show when not in edit mode */}
         {!isEditMode && (
           <div className="absolute top-4 left-4 z-10">
@@ -320,10 +325,12 @@ function Portfolio() {
                   <button
                     key={index}
                     onClick={() => setSelectedTheme(index)}
-                    className={`w-8 h-8 rounded-lg bg-gradient-to-br ${theme.class} transition-all duration-300 hover:scale-110 ${
-                      selectedTheme === index 
-                        ? 'ring-2 ring-white/60 shadow-lg scale-110' 
-                        : 'hover:ring-1 hover:ring-white/40'
+                    className={`w-8 h-8 rounded-lg bg-gradient-to-br ${
+                      theme.class
+                    } transition-all duration-300 hover:scale-110 ${
+                      selectedTheme === index
+                        ? "ring-2 ring-white/60 shadow-lg scale-110"
+                        : "hover:ring-1 hover:ring-white/40"
                     }`}
                     title={theme.name}
                   />
@@ -334,7 +341,7 @@ function Portfolio() {
         )}
 
         {/* Edit Profile Button */}
-        <div className="absolute top-12 right-4 z-10">
+        <div className="absolute space-y-4 top-12 right-4 z-10">
           <button
             onClick={() => setIsEditMode(!isEditMode)}
             className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl flex items-center justify-center hover:bg-white/20 hover:scale-110 transition-all duration-300"
@@ -344,6 +351,9 @@ function Portfolio() {
             ) : (
               <Edit3 className="w-5 h-5 text-white" />
             )}
+          </button>
+          <button className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl flex items-center justify-center hover:bg-white/20 hover:scale-110 transition-all duration-300">
+            <Clipboard className="w-5 h-5 text-white" />
           </button>
         </div>
         {/* Header Section */}
