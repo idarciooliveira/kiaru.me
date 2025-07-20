@@ -9,10 +9,13 @@ import {
   CheckCircle,
   Star,
 } from "lucide-react";
-import { Link, useNavigate } from "react-router";
+import { Link } from "react-router";
+import { useLanguage } from "@/context/i18n";
+import { LanguageSwitcher } from "@/components/language-switcher";
 
 export default function Home() {
-  const navigation = useNavigate();
+  const { t } = useLanguage();
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 relative overflow-hidden">
       {/* Background Elements */}
@@ -44,25 +47,23 @@ export default function Home() {
                 to="#features"
                 className="text-slate-300 hover:text-white transition-colors"
               >
-                Features
+                {t("nav.features")}
               </Link>
               <Link
                 to="#examples"
                 className="text-slate-300 hover:text-white transition-colors"
               >
-                Examples
+                {t("nav.examples")}
               </Link>
               <Link
                 to="#pricing"
                 className="text-slate-300 hover:text-white transition-colors"
               >
-                Pricing
+                {t("nav.pricing")}
               </Link>
-              <Button
-                onClick={() => navigation("/login")}
-                className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 backdrop-blur-sm border border-blue-500/30 shadow-lg"
-              >
-                Get Started
+              <LanguageSwitcher />
+              <Button className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 backdrop-blur-sm border border-blue-500/30 shadow-lg">
+                {t("nav.getStarted")}
               </Button>
             </div>
           </div>
@@ -77,19 +78,17 @@ export default function Home() {
               <div className="space-y-4">
                 <Badge className="bg-blue-500/20 text-blue-300 border border-blue-500/30 backdrop-blur-sm shadow-lg">
                   <Sparkles className="w-3 h-3 mr-1" />
-                  AI-Powered Profile Generation
+                  {t("hero.badge")}
                 </Badge>
                 <h1 className="text-5xl lg:text-6xl font-bold text-white leading-tight">
-                  Generate Premium
+                  {t("hero.title")}
                   <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                     {" "}
-                    Professional Profiles
+                    {t("hero.titleHighlight")}
                   </span>
                 </h1>
                 <p className="text-xl text-slate-300 leading-relaxed">
-                  Create stunning, developer-centric professional profiles that
-                  serve as powerful digital business cards. Perfect for
-                  recruiters, hiring managers, and professional collaborators.
+                  {t("hero.subtitle")}
                 </p>
               </div>
 
@@ -98,7 +97,7 @@ export default function Home() {
                   size="lg"
                   className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-lg px-8 backdrop-blur-sm border border-blue-500/30 shadow-xl"
                 >
-                  Generate Your Profile
+                  {t("hero.generateProfile")}
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
                 <Button
@@ -106,7 +105,7 @@ export default function Home() {
                   variant="outline"
                   className="border border-white/20 text-slate-300 hover:bg-white/10 bg-white/5 backdrop-blur-sm shadow-lg"
                 >
-                  View Examples
+                  {t("hero.viewExamples")}
                 </Button>
               </div>
 
@@ -114,16 +113,20 @@ export default function Home() {
                 <div className="text-center bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10 shadow-lg">
                   <div className="text-2xl font-bold text-white">10K+</div>
                   <div className="text-sm text-slate-400">
-                    Profiles Generated
+                    {t("hero.stats.profiles")}
                   </div>
                 </div>
                 <div className="text-center bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10 shadow-lg">
                   <div className="text-2xl font-bold text-white">95%</div>
-                  <div className="text-sm text-slate-400">Success Rate</div>
+                  <div className="text-sm text-slate-400">
+                    {t("hero.stats.success")}
+                  </div>
                 </div>
                 <div className="text-center bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10 shadow-lg">
                   <div className="text-2xl font-bold text-white">4.9★</div>
-                  <div className="text-sm text-slate-400">User Rating</div>
+                  <div className="text-sm text-slate-400">
+                    {t("hero.stats.rating")}
+                  </div>
                 </div>
               </div>
             </div>
@@ -137,48 +140,53 @@ export default function Home() {
                     <div className="w-16 h-16 rounded-full bg-gradient-to-br from-orange-400 to-red-500 overflow-hidden flex-shrink-0 shadow-lg border border-white/20">
                       <img
                         src="/placeholder.svg?height=64&width=64"
-                        alt="Alex Rodriguez"
+                        alt={t("preview.name")}
                         className="w-full h-full object-cover"
                       />
                     </div>
                     <div className="flex-1">
                       <h3 className="text-white text-xl font-bold mb-1">
-                        Alex Rodriguez
+                        {t("preview.name")}
                       </h3>
                       <p className="text-blue-200 text-sm font-medium mb-2">
-                        Senior Product Designer
+                        {t("preview.title")}
                       </p>
                       <p className="text-blue-300 text-xs leading-relaxed">
-                        Passionate designer crafting digital experiences that
-                        blend creativity with user-centered thinking.
+                        {t("preview.bio")}
                       </p>
                     </div>
                   </div>
 
                   {/* Contact Buttons */}
                   <div className="grid grid-cols-4 gap-2">
-                    {["Email", "Phone", "LinkedIn", "Portfolio"].map(
-                      (contact) => (
-                        <div
-                          key={contact}
-                          className="bg-white/10 backdrop-blur-sm rounded-lg p-2 text-center border border-white/20 hover:bg-white/20 transition-colors shadow-lg"
-                        >
-                          <div className="w-4 h-4 mx-auto mb-1 text-blue-200">
-                            <div className="w-full h-full bg-current rounded-sm"></div>
-                          </div>
-                          <span className="text-blue-200 text-xs">
-                            {contact}
-                          </span>
+                    {[
+                      { key: "preview.email", label: t("preview.email") },
+                      { key: "preview.phone", label: t("preview.phone") },
+                      { key: "preview.linkedin", label: t("preview.linkedin") },
+                      {
+                        key: "preview.portfolio",
+                        label: t("preview.portfolio"),
+                      },
+                    ].map((contact) => (
+                      <div
+                        key={contact.key}
+                        className="bg-white/10 backdrop-blur-sm rounded-lg p-2 text-center border border-white/20 hover:bg-white/20 transition-colors shadow-lg"
+                      >
+                        <div className="w-4 h-4 mx-auto mb-1 text-blue-200">
+                          <div className="w-full h-full bg-current rounded-sm"></div>
                         </div>
-                      )
-                    )}
+                        <span className="text-blue-200 text-xs">
+                          {contact.label}
+                        </span>
+                      </div>
+                    ))}
                   </div>
 
                   {/* Projects Grid */}
                   <div>
                     <h4 className="text-white font-semibold mb-3 flex items-center gap-2">
                       <div className="w-4 h-4 bg-blue-400 rounded shadow-lg"></div>
-                      Key Projects
+                      {t("preview.keyProjects")}
                     </h4>
                     <div className="grid grid-cols-3 gap-2">
                       {Array.from({ length: 6 }).map((_, i) => (
@@ -208,16 +216,14 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-4">
-              Everything You Need for a
+              {t("features.title")}
               <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                 {" "}
-                Professional Presence
+                {t("features.titleHighlight")}
               </span>
             </h2>
             <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-              Our AI-powered platform generates comprehensive professional
-              profiles that showcase your skills, experience, and projects in a
-              clean, developer-centric design.
+              {t("features.subtitle")}
             </p>
           </div>
 
@@ -225,39 +231,33 @@ export default function Home() {
             {[
               {
                 icon: <Zap className="w-6 h-6" />,
-                title: "AI-Powered Generation",
-                description:
-                  "Advanced AI analyzes your input to create compelling copy and optimal layout structures automatically.",
+                title: t("features.aiPowered.title"),
+                description: t("features.aiPowered.desc"),
               },
               {
                 icon: <Users className="w-6 h-6" />,
-                title: "Recruiter-Optimized",
-                description:
-                  "Designed specifically for hiring managers and recruiters to quickly assess your value and expertise.",
+                title: t("features.recruiterOptimized.title"),
+                description: t("features.recruiterOptimized.desc"),
               },
               {
                 icon: <CheckCircle className="w-6 h-6" />,
-                title: "Complete Profiles",
-                description:
-                  "Includes contact info, project showcases, experience timeline, skills, and education sections.",
+                title: t("features.completeProfiles.title"),
+                description: t("features.completeProfiles.desc"),
               },
               {
                 icon: <Star className="w-6 h-6" />,
-                title: "Premium Design",
-                description:
-                  "Clean, minimalist aesthetic inspired by top developer tools like Replicate.com and GitHub.",
+                title: t("features.premiumDesign.title"),
+                description: t("features.premiumDesign.desc"),
               },
               {
                 icon: <Sparkles className="w-6 h-6" />,
-                title: "Instant Export",
-                description:
-                  "Generate and export your profile in multiple formats: PDF, HTML, or shareable link.",
+                title: t("features.instantExport.title"),
+                description: t("features.instantExport.desc"),
               },
               {
                 icon: <ArrowRight className="w-6 h-6" />,
-                title: "Mobile Responsive",
-                description:
-                  "Profiles look perfect on all devices, ensuring accessibility for all viewers.",
+                title: t("features.mobileResponsive.title"),
+                description: t("features.mobileResponsive.desc"),
               },
             ].map((feature, index) => (
               <Card
@@ -289,11 +289,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-4">
-              See What's Possible
+              {t("examples.title")}
             </h2>
             <p className="text-xl text-slate-300 max-w-2xl mx-auto">
-              Real profiles generated by our platform for professionals across
-              different industries.
+              {t("examples.subtitle")}
             </p>
           </div>
 
@@ -358,22 +357,21 @@ export default function Home() {
           <div className="bg-white/5 backdrop-blur-xl rounded-3xl p-12 border border-white/20 shadow-2xl">
             <div className="space-y-8">
               <h2 className="text-4xl lg:text-5xl font-bold text-white">
-                Ready to Create Your
+                {t("cta.title")}
                 <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                   {" "}
-                  Professional Profile?
+                  {t("cta.titleHighlight")}
                 </span>
               </h2>
               <p className="text-xl text-slate-300 max-w-2xl mx-auto">
-                Join thousands of professionals who've elevated their online
-                presence with our AI-powered profile generator.
+                {t("cta.subtitle")}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
                   size="lg"
                   className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-lg px-8 backdrop-blur-sm border border-blue-500/30 shadow-xl"
                 >
-                  Generate Profile Now
+                  {t("cta.generateNow")}
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
                 <Button
@@ -381,21 +379,21 @@ export default function Home() {
                   variant="outline"
                   className="border border-white/20 text-slate-300 hover:bg-white/10 bg-white/5 backdrop-blur-sm shadow-lg"
                 >
-                  View Pricing
+                  {t("cta.viewPricing")}
                 </Button>
               </div>
               <div className="flex items-center justify-center gap-4 pt-4 text-sm text-slate-400">
                 <span className="flex items-center gap-1 bg-white/5 backdrop-blur-sm rounded-full px-3 py-1 border border-white/10">
                   <CheckCircle className="w-4 h-4 text-green-400" />
-                  No credit card required
+                  {t("cta.noCard")}
                 </span>
                 <span className="flex items-center gap-1 bg-white/5 backdrop-blur-sm rounded-full px-3 py-1 border border-white/10">
                   <CheckCircle className="w-4 h-4 text-green-400" />
-                  Generate in 60 seconds
+                  {t("cta.generate60s")}
                 </span>
                 <span className="flex items-center gap-1 bg-white/5 backdrop-blur-sm rounded-full px-3 py-1 border border-white/10">
                   <CheckCircle className="w-4 h-4 text-green-400" />
-                  Export anywhere
+                  {t("cta.exportAnywhere")}
                 </span>
               </div>
             </div>
@@ -420,18 +418,18 @@ export default function Home() {
             </div>
             <div className="flex gap-6 text-slate-400">
               <Link to="#" className="hover:text-white transition-colors">
-                Privacy
+                {t("footer.privacy")}
               </Link>
               <Link to="#" className="hover:text-white transition-colors">
-                Terms
+                {t("footer.terms")}
               </Link>
               <Link to="#" className="hover:text-white transition-colors">
-                Support
+                {t("footer.support")}
               </Link>
             </div>
           </div>
           <div className="mt-8 pt-8 border-t border-white/20 text-center text-slate-400">
-            <p>&copy; 2024 ProfileGen. All rights reserved.</p>
+            <p>{t("footer.copyright")}</p>
           </div>
         </div>
       </footer>

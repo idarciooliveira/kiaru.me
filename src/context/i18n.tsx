@@ -172,7 +172,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
   const t = (key: string): string => {
     return (
-      translations[language][key as keyof (typeof translations)["en"]] || key
+      translations[language][key as keyof (typeof translations)["pt"]] || key
     );
   };
 

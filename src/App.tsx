@@ -3,8 +3,9 @@ import Login from "./pages/login.tsx";
 import SetupFlow from "./pages/setup.tsx";
 import Dashboard from "./pages/dashboard.tsx";
 import PortfolioPreview from "./pages/preview.tsx";
-import { LanguageProvider } from "./context/i18n";
 import Home from "./pages/home.tsx";
+
+import { LanguageProvider } from "./context/i18n";
 
 export default function App() {
   return (
