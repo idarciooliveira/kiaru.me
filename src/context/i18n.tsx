@@ -29,7 +29,7 @@ const translations = {
     "hero.stats.rating": "User Rating",
 
     // Profile Preview
-    "preview.name": "Alex Rodriguez",
+    "preview.name": "Deolinda Rodrigues",
     "preview.title": "Senior Product Designer",
     "preview.bio":
       "Passionate designer crafting digital experiences that blend creativity with user-centered thinking.",
